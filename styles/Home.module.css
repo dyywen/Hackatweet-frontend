@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* .main {
   display: flex;
   flex-direction: column;
@@ -31,20 +33,34 @@
 .leftContainer {
   grid-column: 1/4;
   grid-row: 1/7;
-  background-color: #C37D92;
+  background: linear-gradient(90deg, #C37D92 30%, #FFE45C);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 .rightContainer {
   grid-column: 4/10;
   grid-row: 1/7;
-  background-color: #FFE45C;
+  background: linear-gradient(90deg, #FFE45C,  #C37D92);
 }
 
 .mascotte {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.title {
+  margin-left: 3%;
+  margin-top: 20%;
+  color: #846267;
+  /* color: #FF6201; */
+  font-size: 300%;
+  font-family: 'Righteous', cursive;
+}
+
+.button {
+  padding-bottom: 3%;
+  padding-left: 3%;
+  font-size: 140%;
+  font-family: 'Inter', sans-serif;
 }
