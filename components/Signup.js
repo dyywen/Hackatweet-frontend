@@ -37,7 +37,7 @@ function Signup() {
         <p>Sign-up</p>
         <TextField
           type="text"
-          placeholder="name"
+          placeholder="Name"
           id="signUpName"
           onChange={(e) => setsignUpName(e.target.value)}
           value={signUpName}
