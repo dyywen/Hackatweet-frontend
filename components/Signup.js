@@ -5,12 +5,14 @@ import Button from '@mui/material/Button';
 
 
 function Signup() {
-  const [signUpUsername, setsignUpUsername] = useState("");
-  const [signUpPassword, setsignUpPassword] = useState("");
-  const [signUpName, setsignUpName] = useState("");
+  const dispatch = useDispatch();
+  
+  const [signUpUsername, setSignUpUsername] = useState('');
+  const [signUpPassword, setSignUpPassword] = useState("");
+  const [signUpName, setSignUpName] = useState("");
 
   const handleRegister = () => {
-    fetch("http://localhost:3000/users/signin", {
+    fetch("http://localhost:3000/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -22,11 +24,11 @@ function Signup() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          dispatch(login({ name: signUpName, username: signUpUsername, token: data.token }));
-          setsignUpName("");
+          dispatch(login({ name: signUpName, username: signUpUsername, password: signUpPassword, token: data.token }));
+          setSignUpName("");
           setsignUpUsername("");
-          setsignUpPassword("");
-          setIsModalVisible(false);
+          setSignUpPassword("");
+          // setIsModalVisible(false);
         }
       });
   };
@@ -39,7 +41,7 @@ function Signup() {
           type="text"
           placeholder="Name"
           id="signUpName"
-          onChange={(e) => setsignUpName(e.target.value)}
+          onChange={(e) => setSignUpName(e.target.value)}
           value={signUpName}
           className={styles.inputSignUp}
           color="secondary"
@@ -82,6 +84,7 @@ function Signup() {
                   cursor: "pointer",
                 },
               }}
+              onClick={() => {handleRegister()}}
             >
               Sign up
             </Button>   
