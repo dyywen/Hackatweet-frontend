@@ -1,4 +1,4 @@
-.main {
+/* .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,4 +19,32 @@
 
 .title a:hover, .title a:focus, .title a:active {
   text-decoration: underline;
+} */
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  min-height: 100vh;
+}
+
+.leftContainer {
+  grid-column: 1/4;
+  grid-row: 1/7;
+  background-color: #C37D92;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.rightContainer {
+  grid-column: 4/10;
+  grid-row: 1/7;
+  background-color: #FFE45C;
+}
+
+.mascotte {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
