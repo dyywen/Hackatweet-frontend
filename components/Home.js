@@ -44,10 +44,11 @@ function Home() {
           </div>
         </div>
         <div className={styles.rightContainer}>
-          <div className={styles.logo}>
-            <img alt="Logo" />
-          </div>
+
           <div className={styles.title}>
+            <div className={styles.logo}>
+          <Image src="/avatar.png" width={70} height={70} alt="logo" />
+            </div>
             <h1>Wanna see what the drama's about?</h1>
             <h2>Join the judgy bird today.</h2>
           </div>

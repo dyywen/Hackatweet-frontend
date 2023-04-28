@@ -44,6 +44,8 @@
 .mascotte {
     display: flex;
     justify-content: start;
+    margin: 7%;
+    margin-left: 10%;
 }
 
 .user {

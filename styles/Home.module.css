@@ -51,7 +51,6 @@
 
 .title {
   margin-left: 3%;
-  margin-top: 20%;
   color: #846267;
   /* color: #FF6201; */
   font-size: 300%;
@@ -63,4 +62,9 @@
   padding-left: 3%;
   font-size: 140%;
   font-family: 'Inter', sans-serif;
+}
+
+.logo {
+  margin-top: 15%;
+  display: flex;
 }
