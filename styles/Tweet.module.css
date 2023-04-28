@@ -1,0 +1,24 @@
+.avatarRadius {
+    border-radius: 30px; 
+}
+
+.tweetContainer {
+    border: solid 1px yellow;
+    border-radius: 5px;
+    margin: 1%;
+    padding: 2%;
+}
+
+.userContainer {
+    display: flex;
+    margin: 1%;
+    align-items: center;
+}
+
+.name {
+    margin-left: 1%;
+}
+
+.counter {
+    margin-left: 1%;
+}

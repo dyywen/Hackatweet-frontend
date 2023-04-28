@@ -29,7 +29,8 @@
 }
 
 .twitterFeed {
-    grid-column: 2/7;
+    grid-column: 3/7;
+    margin: 3%;
     grid-row: 3/9;
 }
 

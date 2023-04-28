@@ -2,13 +2,18 @@ import { useState } from 'react';
 import styles from "../styles/Signup.module.css";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { redirect } from 'react-router-dom';
+import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux';
+import { login } from '../reducers/user'
+// import { redirect } from 'react-router-dom';
 // import Accueil from './Accueil';
 
 
 
 function Signup() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  const router = useRouter();
   
   const [signUpUsername, setSignUpUsername] = useState('');
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -51,9 +56,9 @@ function Signup() {
     .then((data) => {
       // Handle the response data here
       console.log("Response data:", data);
-      if (data.success) {
-        //  return redirect('/index')
-        window.location.assign('/accueil')
+      if (data.result) {
+        dispatch(login({ username: signUpUsername, name: signUpName, token: data.token }));
+        router.push('/accueil')
       } 
       else {
         // If the registration failed, show an error message
