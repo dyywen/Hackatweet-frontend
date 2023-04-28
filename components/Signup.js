@@ -2,7 +2,8 @@ import { useState } from 'react';
 import styles from "../styles/Signup.module.css";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
+// import Accueil from './Accueil';
 
 
 
@@ -50,29 +51,21 @@ function Signup() {
     .then((data) => {
       // Handle the response data here
       console.log("Response data:", data);
-      // Example: If the registration was successful, redirect to the login page
       if (data.success) {
-        Navigate(<LastTweet>)
-        // const confettiSettings = { target: 'confetti' };
-        // const confetti = new ConfettiGenerator(confettiSettings);
-        // confetti.render();
-      
-        // const message = (<p>'Congratulations! You have successfully signed up.' </p>);
-        
-      
-        // window.location.href = "/home";
+        //  return redirect('/index')
+        window.location.assign('/accueil')
       } 
-      // else {
-      //   // If the registration failed, show an error message
-      //   alert(data.message);
-      // }
+      else {
+        // If the registration failed, show an error message
+        alert(data.message);
+      }
     })
-    // .catch((error) => {
-    //   // Handle any errors that occurred during the fetch request
-    //   console.error("Error occurred:", error);
-    //   // Show an error message to the user
-    //   alert("An error occurred while trying to register. Please try again later.");
-    // });
+    .catch((error) => {
+      // Handle any errors that occurred during the fetch request
+      console.error("Error occurred:", error);
+      // Show an error message to the user
+      alert("An error occurred while trying to register. Please try again later.");
+    });
 };
 
   return (
