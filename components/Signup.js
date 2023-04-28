@@ -2,36 +2,78 @@ import { useState } from 'react';
 import styles from "../styles/Signup.module.css";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Signup() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   
   const [signUpUsername, setSignUpUsername] = useState('');
   const [signUpPassword, setSignUpPassword] = useState("");
   const [signUpName, setSignUpName] = useState("");
 
+  // const handleRegister = () => {
+  //   fetch("http://localhost:3000/users/signup", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       name: signUpName,
+  //       username: signUpUsername,
+  //       password: signUpPassword,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.result) {
+  //         dispatch(login({ name: signUpName, username: signUpUsername, password: signUpPassword, token: data.token }));
+  //         setSignUpName("");
+  //         setsignUpUsername("");
+  //         setSignUpPassword("");
+  //         // setIsModalVisible(false);
+  //       }
+  //     });
+  // };
+
+
   const handleRegister = () => {
-    fetch("http://localhost:3000/users/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: signUpName,
-        username: signUpUsername,
-        password: signUpPassword,
-      }),
+  fetch("http://localhost:3000/users/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: signUpName,
+      username: signUpUsername,
+      password: signUpPassword,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data here
+      console.log("Response data:", data);
+      // Example: If the registration was successful, redirect to the login page
+      if (data.success) {
+        Navigate(<LastTweet>)
+        // const confettiSettings = { target: 'confetti' };
+        // const confetti = new ConfettiGenerator(confettiSettings);
+        // confetti.render();
+      
+        // const message = (<p>'Congratulations! You have successfully signed up.' </p>);
+        
+      
+        // window.location.href = "/home";
+      } 
+      // else {
+      //   // If the registration failed, show an error message
+      //   alert(data.message);
+      // }
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.result) {
-          dispatch(login({ name: signUpName, username: signUpUsername, password: signUpPassword, token: data.token }));
-          setSignUpName("");
-          setsignUpUsername("");
-          setSignUpPassword("");
-          // setIsModalVisible(false);
-        }
-      });
-  };
+    // .catch((error) => {
+    //   // Handle any errors that occurred during the fetch request
+    //   console.error("Error occurred:", error);
+    //   // Show an error message to the user
+    //   alert("An error occurred while trying to register. Please try again later.");
+    // });
+};
 
   return (
     <div className={styles.registerContainer}>
